@@ -60,6 +60,7 @@ button{font:inherit;cursor:pointer;touch-action:manipulation;color:var(--tinta)}
 .seat b{display:block;font-size:16px}
 .seat small{color:var(--tinta-2);font-weight:700}
 .seat select{font:inherit;font-weight:700;padding:8px;border-radius:8px;border:2px solid var(--tabua-borda);background:var(--papel);color:var(--tinta);max-width:44vw;min-height:40px}
+.seat .quem{font-weight:800;padding:8px 14px;border-radius:999px;background:var(--papel);border:2px solid var(--tabua-borda);white-space:nowrap}
 @media (max-width:440px){.seat{grid-template-columns:auto minmax(0,1fr)}.seat select{grid-column:1 / -1;max-width:none;width:100%}}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .hint{color:var(--tinta-2);font-weight:700;margin:0}

@@ -1,11 +1,11 @@
 # Corrida da Floresta
 
-Jogo de tabuleiro de estratégia para 2 a 4 jogadores, com as regras do Bloqueio (Quoridor), num tema de floresta. O macaco corre até as bananas, o urso até o mel, o coelho até as cenouras e o rato até o queijo. Cada jogador pode colocar troncos para atrapalhar os outros, mas nunca pode trancar ninguém.
+Jogo de tabuleiro de estratégia para 2 jogadores, com as regras do Bloqueio (Quoridor), num tema de floresta. O macaco corre até as bananas e o urso até o mel, frente a frente. Cada um tem 10 troncos para atrapalhar o outro, mas nunca pode trancar ninguém.
 
 - Feito com HTML, CSS e JavaScript puro, sem instalação
 - Funciona no computador e no celular (toque)
 - Português, inglês e francês
-- Jogue contra outras pessoas ou contra o computador (fácil ou esperto)
+- Jogue **contra o computador** (fácil ou esperto) ou **duas pessoas** no mesmo aparelho
 
 ## Jogue online
 

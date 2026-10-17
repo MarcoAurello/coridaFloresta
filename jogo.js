@@ -10,21 +10,23 @@
   const I18N = {
     pt: {
       title: 'Corrida da Floresta',
-      lead: 'Leve seu bicho até a comida do outro lado da floresta. Feche o caminho dos outros com troncos.',
+      lead: 'Leve seu bicho até a comida do outro lado da floresta. Feche o caminho do adversário com troncos.',
       language: 'Idioma',
       animals: ['Macaco', 'Coelho', 'Urso', 'Rato'],
       goals: ['às bananas', 'às cenouras', 'ao mel', 'ao queijo'],
-      introH: 'Como se joga', introGo: 'Entendi, escolher os bichos',
+      introH: 'Como se joga', introGo: 'Entendi, vamos jogar',
       rules: [
-        ['Objetivo', 'A clareira tem 9 × 9 casas. Cada bicho começa no meio da sua borda. Ganha quem chegar primeiro a qualquer casa da borda oposta, onde está a sua comida: o macaco busca as bananas, o urso o mel, o coelho as cenouras e o rato o queijo.'],
-        ['Sua vez', 'Joga-se em sentido horário. Na sua vez, faça só uma coisa: andar com o seu bicho ou colocar um tronco.'],
+        ['Objetivo', 'A clareira tem 9 × 9 casas. Os dois bichos começam frente a frente, no meio da sua borda. Ganha quem chegar primeiro a qualquer casa da borda oposta, onde está a sua comida: o macaco busca as bananas e o urso, o mel.'],
+        ['Sua vez', 'Os dois jogam um de cada vez. Na sua vez, faça só uma coisa: andar com o seu bicho ou colocar um tronco.'],
         ['Andar', 'Uma casa por vez: para frente, para trás ou para os lados. Na diagonal, não.'],
         ['Pular', 'Se outro bicho estiver colado em você, dá para pular por cima dele e andar duas casas de uma vez.'],
         ['Diagonal', 'Se houver um tronco (ou a borda) logo atrás do bicho que você ia pular, você vai para uma das casas ao lado dele, na diagonal.'],
-        ['Troncos', 'Cada tronco tem o tamanho de 2 casas e fica no sulco entre elas, deitado ou em pé. Não pode ficar em cima de outro, nem cruzar outro, e nunca sai do lugar. Com 2 bichos, cada um tem 10 troncos; com 3 ou 4, cada um tem 5. Quando acabam, só dá para andar.'],
+        ['Troncos', 'Cada tronco tem o tamanho de 2 casas e fica no sulco entre elas, deitado ou em pé. Não pode ficar em cima de outro, nem cruzar outro, e nunca sai do lugar. Cada bicho tem 10 troncos. Quando acabam, só dá para andar.'],
         ['Proibido trancar', 'Vale fazer labirintos, mas todo bicho precisa sempre ter um caminho até a comida e pelo menos uma casa para andar. O jogo não deixa colocar um tronco que tranque alguém.'],
       ],
-      setupH: 'Quem vai correr?', count: 'Número de bichos', nAnimals: (n) => `${n} bichos`,
+      setupH: 'Quem vai correr?', count: 'Como vocês vão jogar?',
+      modos: { pc: '🤖 Contra o computador', pessoa: '👥 Duas pessoas' },
+      nivel: 'Nível do computador', voce: 'Você', pessoaN: (n) => `Pessoa ${n}`, computador: 'Computador',
       kinds: { human: 'Pessoa', easy: 'Computador (fácil)', hard: 'Computador (esperto)' },
       wants: (i) => `quer chegar ${I18N.pt.goals[i]}`,
       wallsHint: (n) => `Cada bicho começa com ${n} troncos.`,
@@ -37,7 +39,7 @@
       checkFence: 'Confira o tronco. Use Girar para deitar ou pôr em pé.',
       placed: (a) => `${a} colocou um tronco.`, jumped: (a) => `${a} pulou!`, passed: (a) => `${a} passou a vez.`,
       tapMarked: 'Toque numa das casas marcadas para andar.', noDir: 'Tem tronco ou borda nessa direção.',
-      undone: 'Jogada desfeita.', stuckTurn: 'Seu bicho está cercado pelos outros e não tem para onde andar. Coloque um tronco ou passe a vez.',
+      undone: 'Jogada desfeita.', stuckTurn: 'Seu bicho está cercado e não tem para onde andar. Coloque um tronco ou passe a vez.',
       err: {
         none: 'Seus troncos acabaram. Agora só dá para andar.', outside: 'Esse lugar fica fora da floresta.',
         overlap: 'Esse tronco ficaria em cima de outro.', cross: 'Esse tronco cruzaria outro.',
@@ -46,26 +48,28 @@
       },
       win: (i) => `O ${I18N.pt.animals[i]} chegou ${I18N.pt.goals[i]}!`,
       winSub: (p, w) => `Vitória em ${p} jogadas, com ${w} troncos na floresta.`,
-      again: 'Jogar de novo', change: 'Trocar bichos', credit: 'Desenvolvido por',
+      again: 'Jogar de novo', change: 'Mudar o modo', credit: 'Desenvolvido por',
       keys: 'Teclado: setas andam, T tronco, A andar, R gira o tronco, Enter coloca.',
     },
     en: {
       title: 'Forest Race',
-      lead: 'Take your animal to its food on the far side of the forest. Block the others with logs.',
+      lead: 'Take your animal to its food on the far side of the forest. Block your opponent with logs.',
       language: 'Language',
       animals: ['Monkey', 'Rabbit', 'Bear', 'Mouse'],
       goals: ['the bananas', 'the carrots', 'the honey', 'the cheese'],
-      introH: 'How to play', introGo: 'Got it, pick the animals',
+      introH: 'How to play', introGo: 'Got it, let’s play',
       rules: [
-        ['Goal', 'The clearing has 9 × 9 squares. Each animal starts in the middle of its side. The first to reach any square on the opposite side, where its food is, wins: the monkey wants the bananas, the bear the honey, the rabbit the carrots and the mouse the cheese.'],
-        ['Your turn', 'Turns go clockwise. On your turn, do just one thing: move your animal or place a log.'],
+        ['Goal', 'The clearing has 9 × 9 squares. The two animals start face to face, in the middle of their side. The first to reach any square on the opposite side, where its food is, wins: the monkey wants the bananas and the bear wants the honey.'],
+        ['Your turn', 'Players take turns. On your turn, do just one thing: move your animal or place a log.'],
         ['Moving', 'One square at a time: forward, back or sideways. Never diagonally.'],
         ['Jumping', 'If another animal is right next to you, you can jump over it and move two squares at once.'],
         ['Diagonal', 'If there is a log (or the edge) right behind the animal you would jump, you move to one of the squares beside it, diagonally.'],
-        ['Logs', 'Each log is 2 squares long and sits in the groove between squares, lying down or standing up. It can’t sit on top of another or cross one, and it never moves. With 2 animals each gets 10 logs; with 3 or 4, each gets 5. When they run out, you can only move.'],
+        ['Logs', 'Each log is 2 squares long and sits in the groove between squares, lying down or standing up. It can’t sit on top of another or cross one, and it never moves. Each animal has 10 logs. When they run out, you can only move.'],
         ['No trapping', 'Mazes are fine, but every animal must always have a way to its food and at least one square to move to. The game won’t let you place a log that traps anyone.'],
       ],
-      setupH: 'Who is racing?', count: 'Number of animals', nAnimals: (n) => `${n} animals`,
+      setupH: 'Who is racing?', count: 'How do you want to play?',
+      modos: { pc: '🤖 Against the computer', pessoa: '👥 Two players' },
+      nivel: 'Computer level', voce: 'You', pessoaN: (n) => `Player ${n}`, computador: 'Computer',
       kinds: { human: 'Person', easy: 'Computer (easy)', hard: 'Computer (clever)' },
       wants: (i) => `wants to reach ${I18N.en.goals[i]}`,
       wallsHint: (n) => `Each animal starts with ${n} logs.`,
@@ -78,7 +82,7 @@
       checkFence: 'Check the log. Use Rotate to turn it.',
       placed: (a) => `${a} placed a log.`, jumped: (a) => `${a} jumped!`, passed: (a) => `${a} skipped a turn.`,
       tapMarked: 'Tap one of the marked squares to move.', noDir: 'There is a log or the edge that way.',
-      undone: 'Move undone.', stuckTurn: 'Your animal is boxed in by the others and can’t move. Place a log or skip your turn.',
+      undone: 'Move undone.', stuckTurn: 'Your animal is boxed in and can’t move. Place a log or skip your turn.',
       err: {
         none: 'You’re out of logs. You can only move now.', outside: 'That spot is outside the forest.',
         overlap: 'That log would sit on top of another.', cross: 'That log would cross another.',
@@ -87,27 +91,29 @@
       },
       win: (i) => `The ${I18N.en.animals[i]} reached ${I18N.en.goals[i]}!`,
       winSub: (p, w) => `Won in ${p} turns, with ${w} logs in the forest.`,
-      again: 'Play again', change: 'Change animals', credit: 'Developed by',
+      again: 'Play again', change: 'Change mode', credit: 'Developed by',
       keys: 'Keyboard: arrows move, T log, A move, R rotates the log, Enter places it.',
     },
     fr: {
       title: 'Course en Forêt',
-      lead: 'Mène ton animal jusqu’à sa nourriture de l’autre côté de la forêt. Bloque les autres avec des troncs.',
+      lead: 'Mène ton animal jusqu’à sa nourriture de l’autre côté de la forêt. Bloque ton adversaire avec des troncs.',
       language: 'Langue',
       animals: ['Singe', 'Lapin', 'Ours', 'Souris'],
       animalsArt: ['Le Singe', 'Le Lapin', 'L’Ours', 'La Souris'],
       goals: ['aux bananes', 'aux carottes', 'au miel', 'au fromage'],
-      introH: 'Comment jouer', introGo: 'Compris, choisir les animaux',
+      introH: 'Comment jouer', introGo: 'Compris, on joue',
       rules: [
-        ['But du jeu', 'La clairière a 9 × 9 cases. Chaque animal part du milieu de son côté. Le premier qui atteint une case du côté opposé, là où se trouve sa nourriture, gagne : le singe veut les bananes, l’ours le miel, le lapin les carottes et la souris le fromage.'],
-        ['Ton tour', 'On joue dans le sens des aiguilles d’une montre. À ton tour, fais une seule chose : déplacer ton animal ou poser un tronc.'],
+        ['But du jeu', 'La clairière a 9 × 9 cases. Les deux animaux partent face à face, au milieu de leur côté. Le premier qui atteint une case du côté opposé, là où se trouve sa nourriture, gagne : le singe veut les bananes et l’ours veut le miel.'],
+        ['Ton tour', 'On joue chacun son tour. À ton tour, fais une seule chose : déplacer ton animal ou poser un tronc.'],
         ['Se déplacer', 'Une case à la fois : en avant, en arrière ou sur les côtés. Jamais en diagonale.'],
         ['Sauter', 'Si un autre animal est juste à côté de toi, tu peux sauter par-dessus et avancer de deux cases d’un coup.'],
         ['Diagonale', 'S’il y a un tronc (ou le bord) juste derrière l’animal que tu voulais sauter, tu vas sur une des cases à côté de lui, en diagonale.'],
-        ['Troncs', 'Chaque tronc mesure 2 cases et se place dans la rainure entre les cases, couché ou debout. Il ne peut ni chevaucher ni croiser un autre tronc, et ne bouge plus jamais. À 2 animaux, chacun a 10 troncs ; à 3 ou 4, chacun en a 5. Quand il n’y en a plus, on ne peut que se déplacer.'],
+        ['Troncs', 'Chaque tronc mesure 2 cases et se place dans la rainure entre les cases, couché ou debout. Il ne peut ni chevaucher ni croiser un autre tronc, et ne bouge plus jamais. Chaque animal a 10 troncs. Quand il n’y en a plus, on ne peut que se déplacer.'],
         ['Interdit d’enfermer', 'Les labyrinthes sont permis, mais chaque animal doit toujours avoir un chemin vers sa nourriture et au moins une case où aller. Le jeu refuse tout tronc qui enfermerait quelqu’un.'],
       ],
-      setupH: 'Qui fait la course ?', count: 'Nombre d’animaux', nAnimals: (n) => `${n} animaux`,
+      setupH: 'Qui fait la course ?', count: 'Comment voulez-vous jouer ?',
+      modos: { pc: '🤖 Contre l’ordinateur', pessoa: '👥 Deux joueurs' },
+      nivel: 'Niveau de l’ordinateur', voce: 'Toi', pessoaN: (n) => `Joueur ${n}`, computador: 'Ordinateur',
       kinds: { human: 'Personne', easy: 'Ordinateur (facile)', hard: 'Ordinateur (malin)' },
       wants: (i) => `veut aller ${I18N.fr.goals[i]}`,
       wallsHint: (n) => `Chaque animal commence avec ${n} troncs.`,
@@ -120,7 +126,7 @@
       checkFence: 'Vérifie le tronc. Utilise Tourner pour le coucher ou le redresser.',
       placed: (a) => `${a} a posé un tronc.`, jumped: (a) => `${a} a sauté !`, passed: (a) => `${a} passe son tour.`,
       tapMarked: 'Touche une des cases marquées pour avancer.', noDir: 'Il y a un tronc ou le bord de ce côté.',
-      undone: 'Coup annulé.', stuckTurn: 'Ton animal est coincé par les autres et ne peut pas bouger. Pose un tronc ou passe ton tour.',
+      undone: 'Coup annulé.', stuckTurn: 'Ton animal est coincé et ne peut pas bouger. Pose un tronc ou passe ton tour.',
       err: {
         none: 'Tu n’as plus de troncs. Tu ne peux que te déplacer.', outside: 'Cet endroit est hors de la forêt.',
         overlap: 'Ce tronc chevaucherait un autre.', cross: 'Ce tronc en croiserait un autre.',
@@ -129,7 +135,7 @@
       },
       win: (i) => `${I18N.fr.animalsArt[i]} est arrivé ${I18N.fr.goals[i]} !`,
       winSub: (p, w) => `Victoire en ${p} coups, avec ${w} troncs dans la forêt.`,
-      again: 'Rejouer', change: 'Changer d’animaux', credit: 'Développé par',
+      again: 'Rejouer', change: 'Changer de mode', credit: 'Développé par',
       keys: 'Clavier : flèches pour avancer, T tronc, A avancer, R tourne le tronc, Entrée le pose.',
     },
   };
@@ -171,8 +177,11 @@
   const T = () => I18N[lang];
   const aName = (seat) => T().animals[seat];
 
-  const SEATS_FOR = { 2: [0, 2], 3: [0, 1, 2], 4: [0, 1, 2, 3] };
-  let cfg = store.get('cfg') || { n: 2, kinds: { 0: 'human', 1: 'hard', 2: 'hard', 3: 'hard' } };
+  // Só 2 jogadores: o macaco (embaixo) contra o urso (em cima), frente a frente.
+  // modo 'pc': você é o macaco e o computador é o urso; modo 'pessoa': duas pessoas.
+  const SEATS = [0, 2];
+  let cfg = store.get('cfg2') || { modo: 'pc', nivel: 'hard' };
+  const kindOf = (seat) => (seat === 0 || cfg.modo === 'pessoa' ? 'human' : cfg.nivel);
   let state = null, history = [], mode = 'move', ghostKey = null, showPath = false, aiTimer = null, touchMode = false;
   let lastMsg = null; // {key, arg, err}
   let animatedPly = -1;
@@ -216,7 +225,7 @@
     $('rulesList').innerHTML = T().rules.map(([h, p], i) =>
       `<li class="rule${i === 6 ? ' gold' : ''}">${FIGS[i]}<div><h3><span class="n">${i + 1}</span>${h}</h3><p>${p}</p></div></li>`).join('');
     $('rulesShort').innerHTML = T().rules.map(([h, p]) => `<li><b>${h}.</b> ${p}</li>`).join('');
-    document.querySelectorAll('#count button').forEach((b) => { b.textContent = T().nAnimals(+b.dataset.n); });
+    document.querySelectorAll('#count button').forEach((b) => { b.textContent = T().modos[b.dataset.modo]; });
     $('count').setAttribute('aria-label', T().count);
     renderSetup();
     if (state && !$('game').hidden) { render(); if (lastMsg) setMsg(lastMsg.key, lastMsg.arg, lastMsg.err); }
@@ -233,32 +242,42 @@
   $('seeRules').onclick = () => show('intro');
 
   function renderSetup() {
-    document.querySelectorAll('#count button').forEach((b) => b.setAttribute('aria-pressed', String(+b.dataset.n === cfg.n)));
+    document.querySelectorAll('#count button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.modo === cfg.modo)));
     $('seats').innerHTML = '';
-    for (const seat of SEATS_FOR[cfg.n]) {
+    for (const seat of SEATS) {
       const a = ANIMAL_BASE[seat];
       const row = document.createElement('div');
       row.className = 'seat'; row.style.setProperty('--c', a.color);
       row.innerHTML = `<span class="em">${face(seat)}</span><div><b>${aName(seat)}</b><small>${T().wants(seat)} ${a.food}</small></div>`;
-      const sel = document.createElement('select');
-      sel.id = 'kind-' + seat; sel.setAttribute('aria-label', aName(seat));
-      for (const [v, t] of Object.entries(T().kinds)) sel.add(new Option(t, v, false, cfg.kinds[seat] === v));
-      sel.onchange = () => { cfg.kinds[seat] = sel.value; store.set('cfg', cfg); };
-      row.append(sel); $('seats').append(row);
+      if (seat === 2 && cfg.modo === 'pc') {
+        // o urso é o computador: escolhe o nível
+        const sel = document.createElement('select');
+        sel.id = 'nivel'; sel.setAttribute('aria-label', T().nivel);
+        for (const v of ['easy', 'hard']) sel.add(new Option(T().kinds[v], v, false, cfg.nivel === v));
+        sel.onchange = () => { cfg.nivel = sel.value; store.set('cfg2', cfg); };
+        row.append(sel);
+      } else {
+        const quem = document.createElement('span');
+        quem.className = 'quem';
+        quem.textContent = cfg.modo === 'pc' ? T().voce : T().pessoaN(seat === 0 ? 1 : 2);
+        row.append(quem);
+      }
+      $('seats').append(row);
     }
-    $('wallsHint').textContent = T().wallsHint(cfg.n === 2 ? 10 : 5);
+    $('wallsHint').textContent = T().wallsHint(10);
+    // partidas salvas da versão antiga (3 ou 4 bichos) não podem ser continuadas
     const saved = store.get('game');
-    $('resume').hidden = !(saved && saved.state && saved.state.winner === -1);
+    $('resume').hidden = !(saved && saved.state && saved.state.winner === -1 && saved.state.players.length === 2);
   }
   $('count').onclick = (e) => {
     const b = e.target.closest('button'); if (!b) return;
-    cfg.n = +b.dataset.n; store.set('cfg', cfg); renderSetup();
+    cfg.modo = b.dataset.modo; store.set('cfg2', cfg); renderSetup();
   };
   $('start').onclick = () => startGame();
   $('resume').onclick = () => { const s = store.get('game'); if (s) { state = s.state; history = s.history || []; showGame(); } };
 
   function startGame() {
-    state = Q.newGame(SEATS_FOR[cfg.n].map((seat) => ({ seat, kind: cfg.kinds[seat] || 'human' })));
+    state = Q.newGame(SEATS.map((seat) => ({ seat, kind: kindOf(seat) })));
     history = []; lastMsg = null; showGame();
   }
   function showGame() {
