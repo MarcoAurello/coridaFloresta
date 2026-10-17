@@ -7,9 +7,13 @@ Jogo de tabuleiro de estratégia para 2 a 4 jogadores, com as regras do Bloqueio
 - Português, inglês e francês
 - Jogue contra outras pessoas ou contra o computador (fácil ou esperto)
 
+## Jogue online
+
+👉 **https://marcoaurello.github.io/coridaFloresta/**
+
 ## Como jogar
 
-Abra o arquivo `index.html` no navegador.
+Abra o link acima ou o arquivo `index.html` no navegador.
 
 ## Arquivos
 
