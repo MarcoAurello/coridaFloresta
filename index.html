@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="Marco Nunes">
+<title>Corrida da Floresta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1 data-t="title"></h1>
+      <p data-t="lead"></p>
+    </div>
+    <label class="lang"><span aria-hidden="true">🌐</span><span data-t="language"></span>
+      <select id="langSel">
+        <option value="pt">Português</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+      </select>
+    </label>
+  </header>
+
+  <section id="intro" class="intro panelbox" aria-labelledby="intro-t">
+    <div class="intro-head">
+      <h2 id="intro-t" data-t="introH"></h2>
+      <button class="btn" type="button" id="skip" data-t="introGo"></button>
+    </div>
+    <ol class="rules" id="rulesList"></ol>
+    <div class="intro-foot"><button class="btn big" type="button" id="introGo" data-t="introGo"></button></div>
+  </section>
+
+  <section id="setup" class="setup panelbox" aria-labelledby="setup-t" hidden>
+    <h2 id="setup-t" data-t="setupH"></h2>
+    <div>
+      <p class="hint" style="margin-bottom:8px" data-t="count"></p>
+      <div class="seg" id="count" role="group">
+        <button type="button" data-n="2" aria-pressed="true"></button>
+        <button type="button" data-n="3" aria-pressed="false"></button>
+        <button type="button" data-n="4" aria-pressed="false"></button>
+      </div>
+    </div>
+    <div class="seats" id="seats"></div>
+    <p class="hint" id="wallsHint"></p>
+    <div class="row">
+      <button class="btn big" id="start" type="button" data-t="start"></button>
+      <button class="btn sec" id="resume" type="button" data-t="resume" hidden></button>
+      <button class="btn sec" id="seeRules" type="button" data-t="seeRules"></button>
+    </div>
+  </section>
+
+  <section id="game" class="game" hidden>
+    <div class="card g-turn">
+      <div class="turn" id="turn"></div>
+      <div class="modes" role="group">
+        <button type="button" id="m-move" aria-pressed="true"></button>
+        <button type="button" id="m-wall" aria-pressed="false"></button>
+      </div>
+      <p class="msg" id="msg" aria-live="polite"></p>
+      <div class="confirm" id="confirm" hidden>
+        <button class="btn sec" type="button" id="c-rot" data-t="rotate"></button>
+        <button class="btn" type="button" id="c-yes" data-t="place"></button>
+        <button class="btn sec" type="button" id="c-no" data-t="cancel"></button>
+      </div>
+      <div class="confirm" id="passBox" hidden>
+        <button class="btn" type="button" id="pass" data-t="pass"></button>
+      </div>
+    </div>
+    <div class="g-field">
+      <div class="field" id="field">
+        <div class="strip corner"></div><div class="strip top" id="s-top"></div><div class="strip corner"></div>
+        <div class="strip v lef" id="s-lef"></div>
+        <div class="board" id="board"></div>
+        <div class="strip v rig" id="s-rig"></div>
+        <div class="strip corner"></div><div class="strip bot" id="s-bot"></div><div class="strip corner"></div>
+      </div>
+    </div>
+    <div class="card g-who"><ul class="who" id="who"></ul></div>
+    <div class="tools g-tools">
+      <button class="btn sec" type="button" id="undo" data-t="undo"></button>
+      <button class="btn sec" type="button" id="showPath" aria-pressed="false" data-t="showPath"></button>
+      <button class="btn sec" type="button" id="newGame" data-t="newGame"></button>
+    </div>
+    <details class="card g-rules">
+      <summary data-t="rulesLabel"></summary>
+      <ol id="rulesShort"></ol>
+      <p class="hint" data-t="keys"></p>
+    </details>
+  </section>
+
+  <p class="credit"><span data-t="credit"></span> <b>Marco Nunes</b></p>
+</div>
+
+<div class="over" id="over" hidden>
+  <div class="box" role="dialog" aria-modal="true" aria-labelledby="over-t">
+    <div class="trophy" id="over-em"></div>
+    <h2 id="over-t"></h2>
+    <p class="hint" id="over-p"></p>
+    <div class="row">
+      <button class="btn big" type="button" id="again" data-t="again"></button>
+      <button class="btn sec" type="button" id="toSetup" data-t="change"></button>
+    </div>
+  </div>
+</div>
+
+<script src="logica.js"></script>
+<script src="jogo.js"></script>
+</body>
+</html>
